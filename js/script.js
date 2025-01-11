@@ -77,11 +77,7 @@ class Button {
      * Generating a random coordinate that does not exceed the maximum range.
      */
     generateRandomCoord(max) {
-        let coord = Math.floor(Math.random() * max);
-        while (coord >= max) {
-            coord = Math.floor(Math.random() * max);
-        }
-        return coord;
+        return Math.floor(Math.random() * max);
     }
 
     /**
@@ -328,7 +324,6 @@ class UI {
         e.preventDefault(); // preventing default submit behavior
         const input = document.getElementById("numOfButtons");
         const n = parseInt(input.value);
-        this.validateInput(n);
         if (this.validateInput(n)) {
             this.game.startGame(n); // start game if input is valid
         } else {
